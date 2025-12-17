@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Aero + Physics Playground</title>
+    <meta name="description" content="Inclusive physics and aerospace problems explained clearly for everyone." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div>
+          <h1 class="title">Aero + Physics Playground</h1>
+          <p class="subtitle">Your screenshots → clean cards → clear explanations for everyone.</p>
+        </div>
+
+        <nav class="nav">
+          <a href="#problems">Problems</a>
+          <a href="#about">About</a>
+          <a href="#howto">How to add more</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="controls" id="problems" aria-label="Search and filters">
+        <div class="control">
+          <label for="search">Search</label>
+          <input id="search" type="text" placeholder="Search title, topic, tags, or explanation..." />
+        </div>
+
+        <div class="control">
+          <label for="topic">Topic</label>
+          <select id="topic"></select>
+        </div>
+
+        <div class="control">
+          <label for="difficulty">Difficulty</label>
+          <select id="difficulty"></select>
+        </div>
+      </section>
+
+      <section class="grid" id="cards" aria-live="polite"></section>
+
+      <section class="about" id="about">
+        <h2>About</h2>
+        <p>
+          This site is built to make physics and aerospace concepts feel friendly and inclusive.
+          Each problem can include:
+        </p>
+        <ul>
+          <li><b>Plain-language goal</b> (what the question is really asking)</li>
+          <li><b>Step-by-step explanation</b> (no skipping steps)</li>
+          <li><b>Why it matters</b> (real life + aerospace connections)</li>
+        </ul>
+        <p class="note">
+          Tip: Click any card to open the full screenshot.
+        </p>
+      </section>
+
+      <section class="submit" id="howto">
+        <h2>How to add more problems</h2>
+        <ol>
+          <li>Put new screenshots into the <b>images/</b> folder.</li>
+          <li>Add a new entry in <b>problems.json</b> (copy/paste an existing one).</li>
+          <li>Commit/push changes (GitHub Pages updates automatically).</li>
+        </ol>
+        <p class="note">
+          If you want, I can also auto-fill titles/topics and write simple explanations for each screenshot.
+        </p>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-backdrop" id="backdrop" hidden></div>
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+      <div class="modal-header">
+        <h3 id="modalTitle"></h3>
+        <button class="btn" id="closeBtn" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <img id="modalImg" alt="" />
+        <div class="modal-text">
+          <h4>Plain-language goal</h4>
+          <p id="modalGoal"></p>
+
+          <h4>Explanation</h4>
+          <p id="modalExplanation"></p>
+
+          <h4>Why it matters</h4>
+          <p id="modalWhy"></p>
+
+          <div class="tags" id="modalTags"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Aero + Physics Playground</span>
+        <span class="small">Built for curiosity. No pressure. Just learning.</span>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
